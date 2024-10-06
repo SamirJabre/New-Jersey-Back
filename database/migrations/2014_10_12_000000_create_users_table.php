@@ -18,10 +18,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone_number')->nullable();
             $table->text('address')->nullable();
-            $table->json('cart')->nullable();
-            $table->json('wishlist')->nullable();
-            $table->json('active_orders')->nullable();
-            $table->json('order_history')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
