@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Wishlist;
 
 class AuthController extends Controller
 {
@@ -54,6 +57,14 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        $cart = Cart::create([
+            'user_id'=> $user->id,
+        ]);
+
+        $wishlist = Wishlist::create([
+            'user_id'=> $user->id,
         ]);
 
         $token = Auth::login($user);

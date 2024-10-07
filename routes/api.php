@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +27,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/add_address', [AddressController::class, 'addAddress']);
+    Route::post('/add_to_cart' , [CartController::class,'addToCart']);
+    Route::post('/add_to_wishlist', [WishlistController::class, 'addToWishlist']);
 });
+
