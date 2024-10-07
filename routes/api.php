@@ -29,5 +29,8 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('/add_address', [AddressController::class, 'addAddress']);
     Route::post('/add_to_cart' , [CartController::class,'addToCart']);
     Route::post('/add_to_wishlist', [WishlistController::class, 'addToWishlist']);
+    Route::post('/remove_product', [CartController::class, 'removeProduct']);
+    Route::post('/decrement_quantity' , [CartController::class,'decrementQuantity']);
+    Route::post('/increment_quantity' , [CartController::class,'incrementQuantity']);
 });
 
