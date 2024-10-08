@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('/increment_quantity' , [CartController::class,'incrementQuantity']);
     Route::post('/add_to_wishlist', [WishlistController::class, 'addToWishlist']);
     Route::post('/remove_from_wishlist', [WishlistController::class, 'removeFromWishlist']);
+    Route::post('/make_order', [OrderController::class, 'createOrder']);
+    Route::post('/cancel_order', [OrderController::class, 'cancelOrder']);
 });
 
